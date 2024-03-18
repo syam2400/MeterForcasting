@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- topics -->
+<section class="section">
+    <div class="container">
+        <div class="row justify-content-center">
+            {% if message %}
+            {{ message}}
+            {% else %}
+
+            <!-- topic-item -->
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <div class="px-4 py-5 bg-white shadow text-center d-block match-height">
+                    <div>
+                        <i class="ti-panel icon text-primary d-block mb-4"></i>
+                        <h3 class="mb-3 mt-0">Gas-
+                            <br>SmartForecasting</h3>
+
+                    </div>
+                    <br>
+                    <div style=" display: flex;justify-content: center; align-items: center;">
+                        <form method="POST" enctype="multipart/form-data" action="{% url 'expenses:smart_meter' 'Gas' %}">
+                            {% csrf_token %}
+
+                            <div style="margin-left:80px;">
+                                <h4 style="margin-right:80px;">Add the CSV data</h4>
+                                <input type="file" placeholder="input the data" name="datas">
+                            </div>
+                            <br>
+                            <input type="submit" value="Submit">
+                        </form>
+                    </div>
+                    <div>
+
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <div class="px-4 py-5 bg-white shadow text-center d-block match-height">
+                    <i class="ti-credit-card icon text-primary d-block mb-4"></i>
+                    <h3 class="mb-3 mt-0">Water-SmartForecasting</h3>
+                    <br>
+                    <div style=" display: flex;justify-content: center; align-items: center;">
+                        <form method="POST" enctype="multipart/form-data" action="{% url 'expenses:smart_meter' 'Water ' %}">
+                            {% csrf_token %}
+                            <div style="margin-left:80px;">
+                                <h4 style="margin-right:80px;">Add the CSV data</h4>
+                                <input type="file" placeholder="input the data" name="datas">
+                            </div>
+                            <br>
+                            <input type="submit" value="Submit">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <div class="px-4 py-5 bg-white shadow text-center d-block match-height">
+                    <i class="ti-package icon text-primary d-block mb-4"></i>
+                    <h3 class="mb-3 mt-0">Electricity-SmartForecasting</h3>
+                    <br>
+                    <div style=" display: flex;justify-content: center; align-items: center;">
+                        <form method="POST" enctype="multipart/form-data" action="{% url 'expenses:smart_meter' 'Electricity' %}">
+                            {% csrf_token %}
+                            <div style="margin-left:80px;">
+                                <h4 style="margin-right:80px;">Add the CSV data</h4>
+                                <input type="file" placeholder="input the data" name="datas">
+                            </div>
+                            <br>
+                            <input type="submit" value="Submit">
+                        </form>
+                    </div>
+                    </a>
+                </div>
+            </div>
+         {% endif %}
+        </div>
+</section>
+<!-- /topics -->
+
+<!-- call to action -->
+
+<!-- /call to action -->
+
+
+{% endblock %}
